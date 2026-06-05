@@ -669,7 +669,7 @@ body {
 .site-menu > li { position: relative; }
 .nav-dropdown {
   position: absolute;
-  top: calc(100% + 10px);
+  top: 100%;          /* 緊接 li，無空隙，hover 區域連續 */
   left: 50%;
   transform: translateX(-50%);
   min-width: 110px;
@@ -682,7 +682,7 @@ body {
   pointer-events: none;
   transition: opacity 0.18s, visibility 0.18s;
   z-index: 200;
-  padding: 6px 0;
+  padding: 10px 0 6px;  /* 頂部 padding 製造視覺間距 */
 }
 .site-menu > li:hover .nav-dropdown,
 .site-menu > li.open .nav-dropdown {
