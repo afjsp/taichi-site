@@ -180,20 +180,6 @@
   © 2026 — 第一階段八堂課程要點整理
 </footer>
 
-<script>
-document.querySelectorAll('.has-dropdown').forEach(li => {
-  li.querySelector('a').addEventListener('click', function(e) {
-    if (window.innerWidth <= 880) {
-      e.preventDefault();
-      li.classList.toggle('open');
-    }
-  });
-});
-document.addEventListener('click', function(e) {
-  if (!e.target.closest('.has-dropdown')) {
-    document.querySelectorAll('.has-dropdown.open').forEach(li => li.classList.remove('open'));
-  }
-});
-</script>
+<script src="../assets/nav.js"></script>
 </body>
 </html>
