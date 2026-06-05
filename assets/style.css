@@ -1,0 +1,691 @@
+/* ============================================
+   太極拳基礎課程 — 東方典雅樣式
+   配色：米白 / 墨色 / 朱紅
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600;700;900&family=Ma+Shan+Zheng&display=swap');
+
+:root {
+  --bg-paper: #f6efe1;          /* 宣紙米白 */
+  --bg-paper-2: #ede2cd;        /* 微帶米黃陰影 */
+  --bg-card: #fbf6ec;
+  --ink: #1f1b16;               /* 墨色 */
+  --ink-2: #4a443c;             /* 淡墨 */
+  --ink-3: #7a7167;             /* 灰墨 */
+  --vermilion: #a8322b;         /* 朱紅 */
+  --vermilion-dark: #7e2620;    /* 深朱 */
+  --gold: #b08646;              /* 古金 */
+  --line: #c9bfac;              /* 細線 */
+  --line-soft: #e2d8c2;
+  --shadow: 0 6px 24px rgba(31, 27, 22, 0.08);
+  --shadow-deep: 0 14px 40px rgba(31, 27, 22, 0.16);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Noto Serif TC", "STKaiti", "BiauKai", "PMingLiU", serif;
+  background: var(--bg-paper);
+  background-image:
+    radial-gradient(circle at 20% 10%, rgba(176, 134, 70, 0.06), transparent 50%),
+    radial-gradient(circle at 80% 90%, rgba(168, 50, 43, 0.05), transparent 50%);
+  color: var(--ink);
+  line-height: 1.85;
+  font-size: 16.5px;
+  letter-spacing: 0.02em;
+  min-height: 100vh;
+}
+
+/* ===== 全站導覽列 ===== */
+.site-nav {
+  background: rgba(246, 239, 225, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line-soft);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.site-nav-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 14px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.site-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--ink);
+}
+.site-brand-mark {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--vermilion);
+  color: #f7eed8;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+  box-shadow: 0 2px 8px rgba(168, 50, 43, 0.3);
+  font-family: "Ma Shan Zheng", "Noto Serif TC", serif;
+}
+.site-brand-text {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+.site-brand-sub {
+  font-size: 12px;
+  color: var(--ink-3);
+  letter-spacing: 0.12em;
+}
+.site-menu {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+.site-menu a {
+  color: var(--ink-2);
+  text-decoration: none;
+  font-size: 15px;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.2s;
+}
+.site-menu a:hover, .site-menu a.active {
+  color: var(--vermilion);
+}
+.site-menu a.active::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: -2px;
+  height: 2px;
+  background: var(--vermilion);
+}
+
+/* ===== 麵包屑 ===== */
+.breadcrumb {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 18px 32px 0;
+  font-size: 13px;
+  color: var(--ink-3);
+}
+.breadcrumb a { color: var(--ink-2); text-decoration: none; }
+.breadcrumb a:hover { color: var(--vermilion); }
+.breadcrumb .sep { margin: 0 8px; color: var(--line); }
+
+/* ===== 首頁 Hero ===== */
+.hero {
+  text-align: center;
+  padding: 88px 32px 72px;
+  position: relative;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+.hero-mark {
+  font-family: "Ma Shan Zheng", serif;
+  font-size: 96px;
+  color: var(--vermilion);
+  line-height: 1;
+  margin-bottom: 16px;
+  text-shadow: 2px 4px 0 rgba(168, 50, 43, 0.12);
+}
+.hero h1 {
+  font-size: 42px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  margin-bottom: 18px;
+  color: var(--ink);
+}
+.hero-line {
+  display: inline-block;
+  width: 60px;
+  height: 2px;
+  background: var(--vermilion);
+  margin: 8px 0 24px;
+}
+.hero-subtitle {
+  font-size: 17px;
+  color: var(--ink-2);
+  letter-spacing: 0.1em;
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 2;
+}
+
+/* ===== 區塊標題 ===== */
+.section-title {
+  text-align: center;
+  margin: 56px 0 36px;
+}
+.section-title h2 {
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  color: var(--ink);
+  display: inline-block;
+  position: relative;
+  padding: 0 24px;
+}
+.section-title h2::before,
+.section-title h2::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 32px;
+  height: 1px;
+  background: var(--line);
+}
+.section-title h2::before { right: 100%; }
+.section-title h2::after { left: 100%; }
+.section-title .en {
+  display: block;
+  font-size: 12px;
+  color: var(--ink-3);
+  letter-spacing: 0.4em;
+  margin-top: 6px;
+  font-family: "Cormorant Garamond", "Noto Serif TC", serif;
+}
+
+/* ===== 期別卡片（首頁） ===== */
+.semester-grid {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px 80px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.semester-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line-soft);
+  border-radius: 4px;
+  padding: 36px 28px;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+.semester-card::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid transparent;
+  pointer-events: none;
+  transition: border-color 0.3s;
+}
+.semester-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+  border-color: var(--vermilion);
+}
+.semester-card:hover::before {
+  border-color: rgba(168, 50, 43, 0.25);
+}
+.semester-card.coming {
+  opacity: 0.6;
+  pointer-events: none;
+}
+.semester-num {
+  font-family: "Ma Shan Zheng", serif;
+  font-size: 64px;
+  color: var(--vermilion);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+.semester-card h3 {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  margin-bottom: 14px;
+}
+.semester-card p {
+  color: var(--ink-3);
+  font-size: 14px;
+  line-height: 1.9;
+}
+.semester-card .badge {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 4px 14px;
+  border: 1px solid var(--vermilion);
+  color: var(--vermilion);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  border-radius: 2px;
+}
+.semester-card.coming .badge {
+  border-color: var(--ink-3);
+  color: var(--ink-3);
+}
+
+/* ===== 期別內頁 — 課程列表 ===== */
+.page-wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 24px 32px 80px;
+}
+.page-header {
+  text-align: center;
+  padding: 48px 0 32px;
+}
+.page-header h1 {
+  font-size: 36px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  margin-bottom: 12px;
+}
+.page-header .meta {
+  color: var(--ink-3);
+  font-size: 14px;
+  letter-spacing: 0.15em;
+}
+.page-header .hero-line {
+  margin: 18px auto 0;
+  display: block;
+}
+
+.class-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 36px;
+}
+.class-card {
+  display: block;
+  background: var(--bg-card);
+  border: 1px solid var(--line-soft);
+  border-radius: 4px;
+  padding: 24px 28px;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  transition: all 0.25s;
+}
+.class-card:hover {
+  border-color: var(--vermilion);
+  transform: translateX(4px);
+  box-shadow: var(--shadow);
+}
+.class-card .num {
+  display: inline-block;
+  font-family: "Ma Shan Zheng", serif;
+  color: var(--vermilion);
+  font-size: 36px;
+  line-height: 1;
+  margin-right: 14px;
+  vertical-align: middle;
+}
+.class-card .info {
+  display: inline-block;
+  vertical-align: middle;
+}
+.class-card .title {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+.class-card .date {
+  font-size: 13px;
+  color: var(--ink-3);
+  letter-spacing: 0.1em;
+}
+.class-card .arrow {
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--line);
+  font-size: 20px;
+  transition: color 0.25s, transform 0.25s;
+}
+.class-card:hover .arrow {
+  color: var(--vermilion);
+  transform: translateY(-50%) translateX(4px);
+}
+
+/* ===== 課程內文頁 — 側邊摺疊 ===== */
+.class-page {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 24px 32px 80px;
+}
+.class-title-bar {
+  text-align: center;
+  padding: 36px 0 28px;
+  border-bottom: 1px solid var(--line-soft);
+  margin-bottom: 36px;
+}
+.class-title-bar .num-deco {
+  font-family: "Ma Shan Zheng", serif;
+  font-size: 48px;
+  color: var(--vermilion);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.class-title-bar h1 {
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  margin-bottom: 8px;
+}
+.class-title-bar .date {
+  color: var(--ink-3);
+  font-size: 13px;
+  letter-spacing: 0.15em;
+}
+
+.class-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+.side-nav {
+  position: sticky;
+  top: 90px;
+  background: var(--bg-card);
+  border: 1px solid var(--line-soft);
+  border-radius: 4px;
+  padding: 18px;
+}
+.side-nav-title {
+  font-size: 12px;
+  color: var(--ink-3);
+  letter-spacing: 0.3em;
+  padding: 4px 8px 12px;
+  border-bottom: 1px solid var(--line-soft);
+  margin-bottom: 8px;
+}
+.side-tab {
+  display: block;
+  padding: 12px 14px;
+  margin: 4px 0;
+  border-radius: 3px;
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  color: var(--ink-2);
+  cursor: pointer;
+  letter-spacing: 0.1em;
+  transition: all 0.2s;
+  position: relative;
+}
+.side-tab:hover {
+  background: rgba(168, 50, 43, 0.06);
+  color: var(--vermilion);
+}
+.side-tab.active {
+  background: var(--vermilion);
+  color: #f7eed8;
+  box-shadow: 0 2px 8px rgba(168, 50, 43, 0.25);
+}
+.side-tab .icon {
+  display: inline-block;
+  width: 18px;
+  margin-right: 10px;
+  text-align: center;
+}
+.side-tab .ext-link {
+  display: block;
+  margin-top: 6px;
+  font-size: 11px;
+  color: var(--ink-3);
+  letter-spacing: 0.05em;
+  text-decoration: none;
+}
+.side-tab.active .ext-link { color: rgba(247, 238, 216, 0.75); }
+.side-tab .ext-link:hover { color: var(--vermilion); text-decoration: underline; }
+.side-tab.active .ext-link:hover { color: #fff; }
+
+.class-content-area {
+  background: var(--bg-card);
+  border: 1px solid var(--line-soft);
+  border-radius: 4px;
+  padding: 40px 48px;
+  min-height: 480px;
+  position: relative;
+}
+
+.tab-panel { display: none; }
+.tab-panel.active { display: block; animation: fadeIn 0.4s ease; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* 錄音檔頁 */
+.audio-wrap {
+  text-align: center;
+  padding: 24px 0;
+}
+.audio-wrap h2 {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  margin-bottom: 12px;
+}
+.audio-wrap .desc {
+  color: var(--ink-3);
+  font-size: 14px;
+  margin-bottom: 28px;
+}
+.audio-frame {
+  width: 100%;
+  max-width: 700px;
+  height: 80px;
+  border: 1px solid var(--line-soft);
+  border-radius: 4px;
+  margin: 0 auto;
+  background: #fff;
+}
+.audio-actions {
+  margin-top: 24px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.btn {
+  display: inline-block;
+  padding: 10px 22px;
+  border: 1px solid var(--vermilion);
+  color: var(--vermilion);
+  background: transparent;
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 0.15em;
+  border-radius: 2px;
+  transition: all 0.2s;
+  cursor: pointer;
+  font-family: inherit;
+}
+.btn:hover {
+  background: var(--vermilion);
+  color: #f7eed8;
+}
+.btn.btn-ghost {
+  border-color: var(--line);
+  color: var(--ink-2);
+}
+.btn.btn-ghost:hover {
+  border-color: var(--vermilion);
+  background: transparent;
+  color: var(--vermilion);
+}
+
+/* 內文排版 */
+.note-content h1, .note-content h2, .note-content h3, .note-content h4 {
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--ink);
+  position: relative;
+}
+.note-content h1 {
+  font-size: 24px;
+  margin: 36px 0 18px;
+  padding-left: 16px;
+  border-left: 4px solid var(--vermilion);
+}
+.note-content h1:first-child { margin-top: 0; }
+.note-content h2 {
+  font-size: 20px;
+  margin: 32px 0 14px;
+  color: var(--vermilion-dark);
+}
+.note-content h3 {
+  font-size: 18px;
+  margin: 26px 0 12px;
+  color: var(--ink);
+  padding-left: 14px;
+  border-left: 3px solid var(--gold);
+}
+.note-content h4 {
+  font-size: 16px;
+  margin: 20px 0 10px;
+  color: var(--ink-2);
+}
+.note-content p {
+  margin: 10px 0;
+  line-height: 2;
+  color: var(--ink-2);
+}
+.note-content strong { color: var(--vermilion-dark); font-weight: 600; }
+.note-content ul, .note-content ol {
+  margin: 8px 0 16px 24px;
+  padding-left: 8px;
+}
+.note-content li {
+  margin: 8px 0;
+  line-height: 1.95;
+  color: var(--ink-2);
+}
+.note-content li::marker { color: var(--vermilion); }
+.note-content .quote {
+  margin: 20px 0;
+  padding: 16px 22px;
+  background: rgba(168, 50, 43, 0.04);
+  border-left: 3px solid var(--vermilion);
+  font-style: italic;
+  color: var(--ink-2);
+}
+.note-content .callout {
+  margin: 14px 0;
+  padding: 6px 14px;
+  background: rgba(176, 134, 70, 0.08);
+  border-radius: 3px;
+  display: inline-block;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* 上下篇切換 */
+.class-pager {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line-soft);
+  gap: 12px;
+}
+.class-pager a {
+  color: var(--ink-2);
+  text-decoration: none;
+  font-size: 14px;
+  padding: 10px 18px;
+  border: 1px solid var(--line-soft);
+  border-radius: 2px;
+  transition: all 0.2s;
+  letter-spacing: 0.1em;
+}
+.class-pager a:hover {
+  border-color: var(--vermilion);
+  color: var(--vermilion);
+}
+.class-pager .empty { visibility: hidden; }
+
+/* ===== 敬請期待頁 ===== */
+.coming-wrap {
+  text-align: center;
+  padding: 96px 32px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.coming-wrap .seal {
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  background: var(--vermilion);
+  color: #f7eed8;
+  font-family: "Ma Shan Zheng", serif;
+  font-size: 56px;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 24px;
+  box-shadow: 0 6px 20px rgba(168, 50, 43, 0.3);
+  letter-spacing: 0;
+}
+.coming-wrap h1 {
+  font-size: 32px;
+  letter-spacing: 0.3em;
+  font-weight: 500;
+  margin-bottom: 18px;
+}
+.coming-wrap p {
+  color: var(--ink-3);
+  line-height: 2;
+  letter-spacing: 0.08em;
+}
+
+/* ===== 頁尾 ===== */
+.site-footer {
+  border-top: 1px solid var(--line-soft);
+  margin-top: 60px;
+  padding: 32px;
+  text-align: center;
+  color: var(--ink-3);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  background: rgba(237, 226, 205, 0.4);
+}
+.site-footer .seal-mark {
+  display: inline-block;
+  font-family: "Ma Shan Zheng", serif;
+  color: var(--vermilion);
+  font-size: 18px;
+  margin: 0 6px;
+}
+
+/* ===== 響應式 ===== */
+@media (max-width: 880px) {
+  .site-nav-inner { padding: 12px 20px; }
+  .site-menu { gap: 18px; }
+  .site-brand-text { font-size: 16px; }
+  .site-brand-sub { display: none; }
+  .hero { padding: 56px 20px 48px; }
+  .hero h1 { font-size: 30px; letter-spacing: 0.15em; }
+  .hero-mark { font-size: 72px; }
+  .semester-grid { grid-template-columns: 1fr; padding: 0 20px 60px; gap: 20px; }
+  .class-list { grid-template-columns: 1fr; }
+  .class-layout { grid-template-columns: 1fr; gap: 18px; }
+  .side-nav { position: static; display: flex; gap: 6px; padding: 10px; }
+  .side-nav-title { display: none; }
+  .side-tab { flex: 1; text-align: center; padding: 10px 6px; font-size: 13px; }
+  .side-tab .ext-link { display: none; }
+  .class-content-area { padding: 28px 22px; }
+  .page-wrap, .class-page, .breadcrumb { padding-left: 20px; padding-right: 20px; }
+  .page-header h1 { font-size: 26px; }
+  .class-title-bar h1 { font-size: 22px; }
+  .note-content h1 { font-size: 20px; }
+  .note-content h2 { font-size: 18px; }
+  .audio-frame { height: 200px; }
+}
