@@ -17,7 +17,17 @@
         <span class="site-brand-sub">TAI CHI · FOUNDATION</span>
       </span>
     </a>
-    <ul class="site-menu"><li><a class="" href="../index.html">首頁</a></li><li><a class="" href="../semester1.html">第一階段</a></li><li><a class="active" href="../semester2.html">第二階段</a></li><li><a class="" href="../semester3.html">第三階段</a></li></ul>
+    <ul class="site-menu">
+      <li><a class="" href="../index.html">首頁</a></li>
+      <li><a class="" href="../semester1.html">第一階段</a></li>
+      <li class="has-dropdown">
+        <a class="active" href="../semester2.html">第二階段</a>
+        <div class="nav-dropdown">
+          <a class="active" href="../semester2.html">下午班</a>
+          <a href="../semester3.html">晚上班</a>
+        </div>
+      </li>
+    </ul>
   </div>
 </nav>
 
@@ -211,5 +221,21 @@
   <span class="seal-mark">極</span>&nbsp;太極拳基礎課程線上講義&nbsp;<span class="seal-mark">極</span><br>
   © 2026 — 第二階段課程要點整理
 </footer>
+
+<script>
+document.querySelectorAll('.has-dropdown').forEach(li => {
+  li.querySelector('a').addEventListener('click', function(e) {
+    if (window.innerWidth <= 880) {
+      e.preventDefault();
+      li.classList.toggle('open');
+    }
+  });
+});
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.has-dropdown')) {
+    document.querySelectorAll('.has-dropdown.open').forEach(li => li.classList.remove('open'));
+  }
+});
+</script>
 </body>
 </html>

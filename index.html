@@ -17,7 +17,17 @@
         <span class="site-brand-sub">TAI CHI · FOUNDATION</span>
       </span>
     </a>
-    <ul class="site-menu"><li><a class="active" href="index.html">首頁</a></li><li><a class="" href="semester1.html">第一階段</a></li><li><a class="" href="semester2.html">第二階段</a></li><li><a class="" href="semester3.html">第三階段</a></li></ul>
+    <ul class="site-menu">
+      <li><a class="active" href="index.html">首頁</a></li>
+      <li><a class="" href="semester1.html">第一階段</a></li>
+      <li class="has-dropdown">
+        <a class="" href="semester2.html">第二階段</a>
+        <div class="nav-dropdown">
+          <a href="semester2.html">下午班</a>
+          <a href="semester3.html">晚上班</a>
+        </div>
+      </li>
+    </ul>
   </div>
 </nav>
 
@@ -35,31 +45,54 @@
 </div>
 
 <section class="semester-grid">
-  
+
   <a class="semester-card" href="semester1.html">
     <div class="semester-num">壹</div>
     <h3>第一階段</h3>
     <p>2026 春季・八堂課<br>鬆緊・呼吸・動態平衡</p>
     <span class="badge">進入課程</span>
   </a>
-  <div class="semester-card coming">
+
+  <div class="semester-card split-card">
     <div class="semester-num">貳</div>
     <h3>第二階段</h3>
-    <p>內容籌備中<br>敬請期待後續開課資訊</p>
-    <span class="badge">敬請期待</span>
+    <p>2026 夏季・八堂課<br>下午班 ＆ 晚上班</p>
+    <div class="split-links">
+      <a class="split-btn" href="semester2.html">下午班 →</a>
+      <a class="split-btn" href="semester3.html">晚上班 →</a>
+    </div>
   </div>
+
   <div class="semester-card coming">
     <div class="semester-num">參</div>
     <h3>第三階段</h3>
     <p>內容籌備中<br>敬請期待後續開課資訊</p>
     <span class="badge">敬請期待</span>
   </div>
+
 </section>
 
 
 <footer class="site-footer">
   <span class="seal-mark">極</span>&nbsp;太極拳基礎課程線上講義&nbsp;<span class="seal-mark">極</span><br>
-  © 2026 — 第一階段八堂課程要點整理
+  © 2026 — 太極拳基礎課程要點整理
 </footer>
+
+<script>
+// 手機版：點擊切換 dropdown
+document.querySelectorAll('.has-dropdown').forEach(li => {
+  li.querySelector('a').addEventListener('click', function(e) {
+    if (window.innerWidth <= 880) {
+      e.preventDefault();
+      li.classList.toggle('open');
+    }
+  });
+});
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.has-dropdown')) {
+    document.querySelectorAll('.has-dropdown.open').forEach(li => li.classList.remove('open'));
+  }
+});
+</script>
 </body>
 </html>
