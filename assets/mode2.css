@@ -1,0 +1,150 @@
+/* 模式二試作：要點圖示（中國風海報）＋本課 Podcast
+   沿用 style.css 的色票（--bg-paper / --ink / --vermilion …） */
+@import url('https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&display=swap');
+
+/* ── 分頁內的子切換（網頁版 / NotebookLM 版） ── */
+.m2-switch { display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
+.m2-switch button {
+  font: inherit; font-size: 14px; padding: 6px 16px; cursor: pointer;
+  border: 1px solid var(--line); background: var(--bg-card); color: var(--ink-2);
+  border-radius: 999px;
+}
+.m2-switch button.on { background: var(--ink); color: var(--bg-paper); border-color: var(--ink); }
+.m2-view { display: none; }
+.m2-view.on { display: block; }
+.m2-hint { font-size: 13px; color: var(--ink-3); margin: 10px 0 0; }
+.m2-nlm-img { width: 100%; max-width: 620px; display: block; margin: 0 auto; border: 1px solid var(--line-soft); box-shadow: var(--shadow); }
+.m2-empty { padding: 48px 20px; text-align: center; color: var(--ink-3); border: 1px dashed var(--line); border-radius: 6px; }
+
+/* ── 海報 ── */
+.poster {
+  --p-ink: #1f1b16; --p-ink2: #4a443c; --p-red: #a8322b; --p-paper: #f7f0e1; --p-line: #cdbf9f;
+  position: relative; max-width: 760px; margin: 0 auto; padding: 44px 44px 36px;
+  color: var(--p-ink);
+  background:
+    radial-gradient(ellipse at 18% 8%, rgba(176,134,70,.10), transparent 55%),
+    radial-gradient(ellipse at 90% 95%, rgba(31,27,22,.07), transparent 50%),
+    var(--p-paper);
+  border: 1px solid var(--p-line);
+  box-shadow: inset 0 0 0 7px var(--p-paper), inset 0 0 0 8px var(--p-line), var(--shadow);
+  font-family: "Noto Serif TC", serif;
+  line-height: 1.6;
+}
+.poster h2, .poster h3, .poster h4, .ps-glyph, .ps-seal, .ps-foot p, .ps-steps li, .ps-kicker {
+  font-family: "LXGW WenKai TC", "Noto Serif TC", serif;
+}
+.poster svg .ink { fill: none; stroke: var(--p-ink); stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; }
+.poster svg .ink-thin { fill: none; stroke: var(--p-ink2); stroke-width: 1.4; stroke-linecap: round; }
+.poster svg .accent { fill: none; stroke: var(--p-red); stroke-width: 2.4; stroke-dasharray: 3 4; stroke-linecap: round; }
+.poster svg .accent-fill, .poster svg .seal-fill { fill: var(--p-red); }
+
+.ps-head { display: flex; align-items: center; gap: 18px; padding-bottom: 18px; border-bottom: 2px solid var(--p-ink); }
+.ps-seal {
+  flex: none; width: 58px; height: 58px; display: grid; place-items: center;
+  background: var(--p-red); color: #fbf3e6; font-size: 34px; border-radius: 6px;
+  box-shadow: inset 0 0 0 3px var(--p-red), inset 0 0 0 4.5px rgba(251,243,230,.75);
+}
+.ps-seal-sm { width: 34px; height: 34px; font-size: 20px; border-radius: 4px; }
+.ps-kicker { font-size: 14px; color: var(--p-ink2); letter-spacing: .12em; }
+.ps-title { margin: 2px 0 0; font-size: clamp(28px, 5.4vw, 44px); font-weight: 700; letter-spacing: .08em; line-height: 1.2; }
+.ps-dot { color: var(--p-red); }
+
+.ps-block { margin-top: 26px; }
+.ps-h { display: flex; align-items: center; gap: 12px; margin: 0 0 14px; font-size: 22px; font-weight: 700; }
+.ps-h::before, .ps-h::after { content: ""; height: 1px; background: var(--p-line); flex: 1; }
+.ps-h span { padding: 0 6px; letter-spacing: .3em; }
+
+.ps-mind { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.ps-mind-item { text-align: center; padding: 6px 4px; }
+.ps-mind-item b { display: block; font-size: 15px; margin-top: 6px; color: var(--p-red); }
+.ps-mind-item p { margin: 2px 0 0; font-size: 13px; color: var(--p-ink2); }
+.ps-glyph {
+  width: 64px; height: 64px; margin: 0 auto; display: grid; place-items: center;
+  font-size: 38px; font-weight: 700; border-radius: 50%;
+  border: 2px solid var(--p-ink); box-shadow: 3px 3px 0 rgba(31,27,22,.12);
+}
+
+.ps-two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
+.ps-card { position: relative; padding: 14px 16px 12px; border: 1px solid var(--p-line); background: rgba(255,252,244,.55); }
+.ps-card h4, .ps-wuji h4, .ps-flow h4 { margin: 0 0 6px; font-size: 19px; font-weight: 700; }
+.ps-card ul { margin: 0; padding-left: 1.1em; font-size: 14px; }
+.ps-card ul li::marker { color: var(--p-red); }
+.ps-card p { margin: 0; font-size: 14px; }
+.ps-icon { float: right; width: 92px; height: 92px; margin: -4px -6px 0 6px; }
+.ps-icon-sm { float: right; width: 44px; height: 44px; }
+.ps-card-sm { display: flex; flex-direction: column; justify-content: center; }
+.ps-four { display: flex; flex-wrap: wrap; gap: 6px; }
+.ps-four span { border: 1px solid var(--p-ink); padding: 1px 9px; font-size: 14px; border-radius: 2px; }
+
+.ps-wuji { display: grid; grid-template-columns: 112px 1fr; gap: 16px; align-items: center; margin-top: 14px; padding: 14px 16px; border-top: 1px solid var(--p-line); border-bottom: 1px solid var(--p-line); }
+.ps-rings { width: 112px; height: 112px; }
+.ps-wuji p { margin: 2px 0; font-size: 14px; }
+.ps-wuji b { color: var(--p-red); }
+
+.ps-flow { margin-top: 14px; }
+.ps-steps { list-style: none; margin: 4px 0 0; padding: 0; display: grid; grid-template-columns: repeat(10, 1fr); counter-reset: s; }
+.ps-steps li {
+  counter-increment: s; position: relative; text-align: center; font-size: 17px; font-weight: 700;
+  writing-mode: vertical-rl; margin: 0 auto; padding: 22px 0 6px; letter-spacing: .15em;
+}
+.ps-steps li::before {
+  content: counter(s); position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  writing-mode: horizontal-tb; font-size: 11px; color: var(--p-red); font-family: "Noto Serif TC", serif;
+}
+.ps-steps li:not(:last-child)::after {
+  content: ""; position: absolute; top: 7px; left: calc(50% + 10px); width: calc(100% + 12px);
+  border-top: 1px dashed var(--p-line);
+}
+.ps-note { margin: 6px 0 0; text-align: center; font-size: 13px; color: var(--p-ink2); letter-spacing: .05em; }
+
+.ps-qa { margin: 0; display: grid; gap: 8px; }
+.ps-qa > div { display: grid; grid-template-columns: 11em 1fr; gap: 12px; align-items: baseline; padding-bottom: 8px; border-bottom: 1px dotted var(--p-line); }
+.ps-qa dt { font-weight: 700; color: var(--p-red); }
+.ps-qa dt::before { content: "問　"; color: var(--p-ink2); font-weight: 400; }
+.ps-qa dd { margin: 0; font-size: 14px; }
+
+.ps-foot { margin-top: 26px; display: flex; align-items: center; justify-content: center; gap: 16px; }
+.ps-foot p { margin: 0; font-size: 18px; text-align: center; line-height: 1.7; }
+
+@media (max-width: 640px) {
+  .poster { padding: 26px 18px 24px; }
+  .ps-mind { grid-template-columns: repeat(2, 1fr); row-gap: 16px; }
+  .ps-two { grid-template-columns: 1fr; }
+  .ps-wuji { grid-template-columns: 76px 1fr; gap: 10px; }
+  .ps-rings { width: 76px; height: 76px; }
+  .ps-steps { grid-template-columns: repeat(5, 1fr); row-gap: 8px; }
+  .ps-steps li:nth-child(5)::after { display: none; }
+  .ps-qa > div { grid-template-columns: 1fr; gap: 2px; }
+  .ps-head { gap: 12px; }
+  .ps-seal { width: 46px; height: 46px; font-size: 26px; }
+}
+
+/* ── Podcast ── */
+.pod-wrap h2 { font-family: "LXGW WenKai TC", "Noto Serif TC", serif; margin: 0 0 6px; }
+.pod-desc { color: var(--ink-2); margin: 0 0 16px; }
+.pod-player { width: 100%; margin: 6px 0 14px; }
+.pod-topics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 18px 0; }
+.pod-topic { padding: 14px; border: 1px solid var(--line); background: var(--bg-card); border-top: 3px solid var(--vermilion); }
+.pod-topic b { display: block; font-family: "LXGW WenKai TC", "Noto Serif TC", serif; font-size: 18px; margin-bottom: 4px; }
+.pod-topic p { margin: 0; font-size: 14px; color: var(--ink-2); }
+.pod-foot { font-size: 13px; color: var(--ink-3); }
+@media (max-width: 640px) { .pod-topics { grid-template-columns: 1fr; } }
+
+/* ── 試作標示 ── */
+.m2-badge { display: inline-block; margin-left: 10px; padding: 2px 10px; font-size: 12px; letter-spacing: .1em; color: #fff; background: var(--vermilion); border-radius: 3px; vertical-align: middle; }
+
+/* 五個基本功流程（五欄版 ps-steps） */
+.ps-steps.ps-steps-5 { grid-template-columns: repeat(5, 1fr); max-width: 520px; margin-left: auto; margin-right: auto; }
+
+/* Podcast 多版本標籤 */
+.pod-ver { margin: 14px 0 0; font-family: "LXGW WenKai TC", "Noto Serif TC", serif; font-size: 16px; font-weight: 700; color: var(--vermilion); }
+
+/* 四個元素流程（四欄版 ps-steps，2026-10-14 加碼場） */
+.ps-steps.ps-steps-4 { grid-template-columns: repeat(4, 1fr); max-width: 420px; margin-left: auto; margin-right: auto; }
+@media (max-width: 640px) { .ps-steps.ps-steps-4 { grid-template-columns: repeat(4, 1fr); } }
+
+/* 模式二有五個分頁：手機上改排兩列（3＋2），避免每顆按鈕的字被拆成三行 */
+@media (max-width: 880px) {
+  .side-nav { flex-wrap: wrap; }
+  .side-tab { flex: 1 1 calc(33.333% - 6px); white-space: nowrap; }
+}
