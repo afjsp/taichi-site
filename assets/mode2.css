@@ -143,6 +143,13 @@
 .ps-steps.ps-steps-4 { grid-template-columns: repeat(4, 1fr); max-width: 420px; margin-left: auto; margin-right: auto; }
 @media (max-width: 640px) { .ps-steps.ps-steps-4 { grid-template-columns: repeat(4, 1fr); } }
 
+/* 六欄版 ps-steps（2026-10-15 下午班第二堂：五個基本功＋單腳站立） */
+.ps-steps.ps-steps-6 { grid-template-columns: repeat(6, 1fr); max-width: 600px; margin-left: auto; margin-right: auto; }
+@media (max-width: 640px) {
+  .ps-steps.ps-steps-6 { grid-template-columns: repeat(6, 1fr); }
+  .ps-steps.ps-steps-6 li:nth-child(5)::after { display: block; }
+}
+
 /* 模式二有五個分頁：手機上改排兩列（3＋2），避免每顆按鈕的字被拆成三行 */
 @media (max-width: 880px) {
   .side-nav { flex-wrap: wrap; }
