@@ -831,3 +831,64 @@ body {
   .history-wrap { padding: 0 20px; margin-bottom: 60px; }
   .history-fold summary { padding: 16px 20px; font-size: 15px; }
 }
+
+/* ── 首頁「當期課程」下方練習音檔（拳譜念誦）───────────── */
+.practice-audio {
+  width: calc(100% - 64px);
+  max-width: 1116px;            /* 與 .semester-grid 內容寬對齊（1180 − 左右 32） */
+  margin: -40px auto 0;
+  padding: 28px 32px 30px;
+  background: var(--bg-card);
+  border: 1px solid var(--line-soft);
+  border-radius: 4px;
+  text-align: center;
+}
+.practice-audio h3 {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  margin-bottom: 8px;
+}
+.practice-desc {
+  color: var(--ink-3);
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.practice-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.practice-item {
+  border-top: 1px solid var(--line-soft);
+  padding-top: 14px;
+  min-width: 0;
+}
+.practice-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.practice-tag {
+  color: var(--vermilion);
+  font-size: 16px;
+  letter-spacing: 0.2em;
+}
+.practice-len { color: var(--ink-3); font-size: 13px; }
+.practice-item audio { width: 100%; display: block; }
+.practice-dl {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--ink-2);
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+}
+.practice-dl:hover { color: var(--vermilion); border-color: var(--vermilion); }
+@media (max-width: 880px) {
+  .practice-audio { width: calc(100% - 40px); margin-top: -40px; padding: 22px 16px 24px; }
+  .practice-list { grid-template-columns: 1fr; }
+}
